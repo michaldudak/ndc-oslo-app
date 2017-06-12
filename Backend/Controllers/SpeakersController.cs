@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BackEnd.Models;
+using BackEnd.Data;
 
 namespace BackEnd.Controllers
 {
@@ -24,7 +24,7 @@ namespace BackEnd.Controllers
         [HttpGet]
         public IEnumerable<Speaker> GetSpeaker()
         {
-            return _context.Speaker;
+            return _context.Speakers;
         }
 
         // GET: api/Speakers/5
@@ -36,7 +36,7 @@ namespace BackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
-            var speaker = await _context.Speaker.SingleOrDefaultAsync(m => m.ID == id);
+            var speaker = await _context.Speakers.SingleOrDefaultAsync(m => m.ID == id);
 
             if (speaker == null)
             {
@@ -90,7 +90,7 @@ namespace BackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Speaker.Add(speaker);
+            _context.Speakers.Add(speaker);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSpeaker", new { id = speaker.ID }, speaker);
@@ -105,13 +105,13 @@ namespace BackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
-            var speaker = await _context.Speaker.SingleOrDefaultAsync(m => m.ID == id);
+            var speaker = await _context.Speakers.SingleOrDefaultAsync(m => m.ID == id);
             if (speaker == null)
             {
                 return NotFound();
             }
 
-            _context.Speaker.Remove(speaker);
+            _context.Speakers.Remove(speaker);
             await _context.SaveChangesAsync();
 
             return Ok(speaker);
@@ -119,7 +119,7 @@ namespace BackEnd.Controllers
 
         private bool SpeakerExists(int id)
         {
-            return _context.Speaker.Any(e => e.ID == id);
+            return _context.Speakers.Any(e => e.ID == id);
         }
     }
 }

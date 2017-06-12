@@ -4,6 +4,8 @@
 /Users/michal/Projects/ndc-oslo-app/Backend/bin/Debug/netcoreapp2.0/Backend.runtimeconfig.dev.json
 /Users/michal/Projects/ndc-oslo-app/Backend/bin/Debug/netcoreapp2.0/Backend.dll
 /Users/michal/Projects/ndc-oslo-app/Backend/bin/Debug/netcoreapp2.0/Backend.pdb
+/Users/michal/Projects/ndc-oslo-app/Backend/bin/Debug/netcoreapp2.0/ConferenceDTO.dll
+/Users/michal/Projects/ndc-oslo-app/Backend/bin/Debug/netcoreapp2.0/ConferenceDTO.pdb
 /Users/michal/Projects/ndc-oslo-app/Backend/obj/Debug/netcoreapp2.0/Backend.csproj.CoreCompileInputs.cache
 /Users/michal/Projects/ndc-oslo-app/Backend/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
 /Users/michal/Projects/ndc-oslo-app/Backend/obj/Debug/netcoreapp2.0/Backend.AssemblyInfo.cs

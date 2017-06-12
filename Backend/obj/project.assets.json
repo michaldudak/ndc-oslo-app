@@ -5238,6 +5238,19 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "ConferenceDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/ConferenceDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConferenceDTO.dll": {}
+        }
       }
     }
   },
@@ -12943,10 +12956,16 @@
         "windowsazure.storage.8.1.1.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "ConferenceDTO/1.0.0": {
+      "type": "project",
+      "path": "../ConferenceDTO/ConferenceDTO.csproj",
+      "msbuildProject": "../ConferenceDTO/ConferenceDTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "ConferenceDTO >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0-preview1-final",
       "Microsoft.NETCore.App >= 2.0.0-preview1-002111-00",
       "Swashbuckle.AspNetCore >= 1.0.0"
@@ -12968,7 +12987,11 @@
       ],
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/michal/Projects/ndc-oslo-app/ConferenceDTO/ConferenceDTO.csproj": {
+              "projectPath": "/Users/michal/Projects/ndc-oslo-app/ConferenceDTO/ConferenceDTO.csproj"
+            }
+          }
         }
       }
     },

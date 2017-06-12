@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "Backend/1.0.0": {
         "dependencies": {
+          "ConferenceDTO": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.0-preview1-final",
           "Microsoft.NETCore.App": "2.0.0-preview1-002111-00",
           "Swashbuckle.AspNetCore": "1.0.0"
@@ -4160,6 +4161,17 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "ConferenceDTO/1.0.0": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.3.0"
+        },
+        "runtime": {
+          "ConferenceDTO.dll": {}
+        },
+        "compile": {
+          "ConferenceDTO.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0-preview1-002111-00": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0-preview1-002111-00",
@@ -6395,6 +6407,11 @@
       "sha512": "sha512-QFL2wHsy/Udpvnv0knIw1lwvMbszH0TcDWH+Bfix/7ZPvaY2vc+vQFFSWpP3zlXd2G9lBOgkPPVsMw3o+CA/cQ==",
       "path": "windowsazure.storage/8.1.1",
       "hashPath": "windowsazure.storage.8.1.1.nupkg.sha512"
+    },
+    "ConferenceDTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.NETCore.App/2.0.0-preview1-002111-00": {
       "type": "package",

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceDTO", "ConferenceDTO\ConferenceDTO.csproj", "{C9DAEB80-1C6D-4237-B335-183672BD0A01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{8C490CF4-06E0-4311-B765-D8693047C5F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{C9DAEB80-1C6D-4237-B335-183672BD0A01}.Release|x64.Build.0 = Release|x64
 		{C9DAEB80-1C6D-4237-B335-183672BD0A01}.Release|x86.ActiveCfg = Release|x86
 		{C9DAEB80-1C6D-4237-B335-183672BD0A01}.Release|x86.Build.0 = Release|x86
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|x64.ActiveCfg = Debug|x64
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|x64.Build.0 = Debug|x64
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|x86.ActiveCfg = Debug|x86
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Debug|x86.Build.0 = Debug|x86
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|x64.ActiveCfg = Release|x64
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|x64.Build.0 = Release|x64
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|x86.ActiveCfg = Release|x86
+		{8C490CF4-06E0-4311-B765-D8693047C5F5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

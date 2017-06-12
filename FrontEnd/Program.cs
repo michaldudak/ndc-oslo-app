@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Backend
+namespace FrontEnd
 {
     public class Program
     {
@@ -19,12 +19,6 @@ namespace Backend
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                /*
-                override defaults:
-                .ConfigureAppConfiguration((ctx, builder) => {
-                    builder.
-                })*/
-                .UseUrls("http://localhost:5001")
                 .UseStartup<Startup>()
                 .Build();
     }

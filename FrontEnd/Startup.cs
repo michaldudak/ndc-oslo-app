@@ -57,7 +57,13 @@ namespace FrontEnd
                 });
             });
 
-            services.AddMvc().AddRazorPagesOptions(options =>
+            services.AddTransient<RequireLoginFilter>();
+
+            services.AddMvc(options =>
+                {
+                    options.Filters.AddService(typeof(RequireLoginFilter));
+                })
+                .AddRazorPagesOptions(options =>
                 {
                     options.AuthorizeFolder("/admin", "Admin");
                 });

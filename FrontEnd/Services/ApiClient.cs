@@ -123,19 +123,42 @@ namespace FrontEnd.Services
 			return await response.Content.ReadAsJsonAsync<List<SearchResult>>();
 		}
 
-		public Task<List<SessionResponse>> GetSessionsByAttendeeAsync(string name)
+		public async Task AddSessionToAttendeeAsync(string name, int sessionId)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.PostAsync($"/api/attendees/{name}/session/{sessionId}", null);
+
+			response.EnsureSuccessStatusCode();
 		}
 
-		public Task AddSessionToAttendeeAsync(string name, int sessionId)
+		public async Task RemoveSessionFromAttendeeAsync(string name, int sessionId)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.DeleteAsync($"/api/attendees/{name}/session/{sessionId}");
+
+			response.EnsureSuccessStatusCode();
 		}
 
-		public Task RemoveSessionFromAttendeeAsync(string name, int sessionId)
+		public async Task<List<SessionResponse>> GetSessionsByAttendeeAsync(string name)
 		{
-			throw new NotImplementedException();
+			// TODO: Add backend API for this
+
+			var sessionsTask = GetSessionsAsync();
+			var attendeeTask = GetAttendeeAsync(name);
+
+			await Task.WhenAll(sessionsTask, attendeeTask);
+
+			var sessions = await sessionsTask;
+			var attendee = await attendeeTask;
+
+			if (attendee == null)
+			{
+				return new List<SessionResponse>();
+			}
+
+			var sessionIds = attendee.Sessions.Select(s => s.ID);
+
+			sessions.RemoveAll(s => !sessionIds.Contains(s.ID));
+
+			return sessions;
 		}
 	}
 }

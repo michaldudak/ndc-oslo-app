@@ -12,7 +12,7 @@ namespace FrontEnd.Pages
 {
     public class IndexModel : PageModel
     {
-        private IApiClient _apiClient;
+        protected IApiClient _apiClient;
 
         public IndexModel(IApiClient apiClient)
         {
@@ -25,11 +25,16 @@ namespace FrontEnd.Pages
 
         public int CurrentDayOffset { get; set; }
 
+        protected virtual Task<List<SessionResponse>> GetSessionsAsync()
+        {
+            return _apiClient.GetSessionsAsync();
+        }
+
         public async Task OnGet(int day = 0)
         {
             CurrentDayOffset = day;
 
-            var sessions = await _apiClient.GetSessionsAsync();
+            var sessions = await GetSessionsAsync();
 
             var startDate = sessions.Min(s => s.StartTime?.Date);
             var endDate = sessions.Max(s => s.EndTime?.Date);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,28 @@ namespace FrontEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCookieAuthentication(options => {
+                options.LoginPath = "/Login";
+            });
+
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+
+            var twitterConfig = Configuration.GetSection("twitter");
+            if (twitterConfig["consumerKey"] != null)
+            {
+                services.AddTwitterAuthentication(options => twitterConfig.Bind(options));
+            }
+
+            var googleConfig = Configuration.GetSection("google");
+            if (googleConfig["clientID"] != null)
+            {
+                services.AddGoogleAuthentication(options => googleConfig.Bind(options));
+            }
+
             services.AddMvc();
             var httpClient = new HttpClient { BaseAddress = new Uri(Configuration["serviceUrl"]) };
             services.AddSingleton(httpClient);
@@ -44,6 +67,8 @@ namespace FrontEnd
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

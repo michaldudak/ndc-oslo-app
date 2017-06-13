@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using FrontEnd.Services;
 using ConferenceDTO;
 
-namespace Frontend.Pages
+namespace FrontEnd.Pages
 {
     public class IndexModel : PageModel
     {

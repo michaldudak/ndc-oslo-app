@@ -48,7 +48,19 @@ namespace FrontEnd
                 services.AddGoogleAuthentication(options => googleConfig.Bind(options));
             }
 
-            services.AddMvc();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy =>
+                {
+                    policy.RequireAuthenticatedUser()
+                        .RequireUserName(Configuration["admin"]);
+                });
+            });
+
+            services.AddMvc().AddRazorPagesOptions(options =>
+                {
+                    options.AuthorizeFolder("/admin", "Admin");
+                });
             var httpClient = new HttpClient { BaseAddress = new Uri(Configuration["serviceUrl"]) };
             services.AddSingleton(httpClient);
             services.AddSingleton<IApiClient, ApiClient>();
